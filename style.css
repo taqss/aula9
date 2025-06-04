@@ -1,0 +1,180 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  margin: 0;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 1.2rem;
+}
+
+.sky {
+  width: 100%;
+  height: 40vh;
+  background: linear-gradient(to bottom,blue,#535ed7,#95ccdf, #add8e6);
+}
+
+.field {
+  width: 100%;
+  height: 60vh;
+  background: linear-gradient(to bottom, #2d5a2d, #1a4a1a, #0f3f0f, #0a350a);
+  position: relative;
+}
+
+.field::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(45, 90, 45, 0.3) 50%, transparent 100%);
+  opacity: 0.6;
+}
+
+.cow {
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  bottom: 10vh;
+  left: 10vw;
+}
+
+.cow img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.cow::before, .cow::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.cow::before {
+  top: 10px;
+  left: 10px;
+}
+
+.cow::after {
+  top: 30px;
+  left: 60px;
+}
+
+@keyframes moveCow {
+  0% {
+    left: 10vw;
+    transform: scaleX(1);
+  }
+  25% {
+    left: 40vw;
+    transform: scaleX(1);
+  }
+  50% {
+    left: 70vw;
+    transform: scaleX(-1);
+  }
+  75% {
+    left: 40vw;
+    transform: scaleX(-1);
+  }
+  100% {
+    left: 10vw;
+    transform: scaleX(1);
+  }
+}
+
+.cow {
+  animation: moveCow 8s infinite linear;
+}
+
+.espantalho {
+  width: 100px;
+  height: 60px;
+  position: absolute;
+  bottom: 30vh;
+  left: 5vw;
+  z-index: 15;
+}
+
+.espantalho img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+
+
+.sun {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(to bottom, rgb(102, 96, 94), rgb(230, 212, 181), rgb(234, 234, 148));
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  box-shadow: 0 0 20px rgb(255, 255, 255);
+  animation: spinSun 1000s linear infinite;
+}
+
+@keyframes spinSun {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  .cow {
+    width: 70px;
+    height: 40px;
+  }
+
+  .sun {
+    width: 50px;
+    height: 50px;
+  }
+
+  .celeiro {
+    width: 250px;
+    height: 150px;
+    right: 5px;
+    bottom: 15vh;
+  }
+
+  .espantalho {
+    width: 70px;
+    height: 40px;
+    left: 3vw;
+    bottom: 10vh;
+  }
+}
+
+.celeiro {
+    width: 400px;
+    height: 240px;
+    position: absolute;
+    right: 15px;
+    bottom: 20vh;
+    z-index: 10;
+}
+
+.celeiro img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
